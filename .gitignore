@@ -1,0 +1,12 @@
+node_modules/
+.tmp-*
+platform/
+*.log
+icon.png
+docs/host-verification/*/dsh-redteam-*.tgz
+docs/host-verification/*/*.png
+docs/host-verification/*/host-page.html
+docs/host-verification/*/browser-url.txt
+docs/host-verification/*/snapshot.json
+docs/host-verification/*/task-workspace.json
+docs/host-verification/isolated-home/

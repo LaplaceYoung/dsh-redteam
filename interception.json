@@ -1,0 +1,1 @@
+{"version":1,"nextOrder":1,"rules":[],"records":[],"enabledTools":["Bash","WebFetch","web_search","shell_open","shell_send","Write","Edit","MultiEdit","bash","pwsh","web_fetch","write_file","edit_file","apply_patch"],"judge":{"enabled":false,"profileId":null,"prompt":"","timeoutSeconds":15,"failAction":"allow","askTimeoutSeconds":300,"askTimeoutAction":"deny"}}

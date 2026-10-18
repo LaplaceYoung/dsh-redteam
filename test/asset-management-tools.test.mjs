@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {randomUUID} from 'node:crypto';
+import {mkdtemp,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {Context} from '@deepseek-ai/cordis';
+import ToolRuntime from '@deepseek-ai/dsh-tools';
+import SystemPrompt from '@deepseek-ai/dsh-system-prompt';
+import {build} from 'esbuild';
+const built=await build({stdin:{contents:"export {installAssetManagementTools} from './src/asset-management/tools.ts'; export {RedTeamStore} from './src/store.ts';",resolveDir:process.cwd(),loader:'ts'},bundle:true,write:false,platform:'node',format:'esm',packages:'external'});
+const code=built.outputFiles[0].text.replace(/from\s+(["'])([^"']+)\1/g,(_m,_q,s)=>`from ${JSON.stringify(import.meta.resolve(s))}`);
+const {installAssetManagementTools,RedTeamStore}=await import(`data:text/javascript;base64,${Buffer.from(code+'\n//# sourceURL=asset-management-tools-test.bundle.mjs').toString('base64')}`);
+
+test('real ToolRuntime checks host authorization before global mutations and exposes real management output',async t=>{
+  const dir=await mkdtemp(join(tmpdir(),'asset-tools-')),store=new RedTeamStore(join(dir,'state.json'));await store.load();
+  const app=new Context(),prompt=await app.plugin(SystemPrompt,{}),tools=await app.plugin(ToolRuntime,{mode:'native'});
+  let allowed=false,installed;
+  const plugin=await app.plugin({inject:['tools'],apply:ctx=>{installed=installAssetManagementTools(ctx,store,{authorize:()=>allowed});}});
+  await installed.ready;
+  t.after(async()=>{await installed.dispose();await plugin.dispose();await tools.dispose();await prompt.dispose();await rm(dir,{recursive:true,force:true});});
+  const call=(name,action,input={})=>app.get('tools').execute({callId:randomUUID(),name,arguments:{action,input},signal:AbortSignal.timeout(10000)});
+  assert.equal((await call('redteam_manage_assets','upsert',{assets:[{type:'root_domain',domain:'blocked.example'}]})).isError,true);
+  assert.equal(store.snapshot().assets.length,0);
+  allowed=true;
+  const created=await call('redteam_manage_assets','upsert',{assets:[{type:'root_domain',domain:'allowed.example'}]});assert.equal(created.isError,false,JSON.stringify(created));
+  const listed=await call('redteam_manage_assets','list');assert.equal(listed.isError,false);assert.equal(listed.value.total,1);assert.equal(listed.value.assets[0].id,created.value.results[0].id);
+  const company=await call('redteam_manage_companies','create',{name:'Tool Company',scope:['allowed.example']});assert.equal(company.isError,false,JSON.stringify(company));
+  const configured=await call('redteam_scopesentry','status');assert.equal(configured.isError,false);assert.equal(configured.value.configured,false);
+  assert.equal((await call('redteam_scopesentry','configure',{api_key:'must-not-be-accepted'})).isError,true);
+  allowed=false;
+  assert.equal((await call('redteam_manage_assets','delete',{ids:[created.value.results[0].id]})).isError,true);
+  assert.equal(store.snapshot().assets.length,1);
+});

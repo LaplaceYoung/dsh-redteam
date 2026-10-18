@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { randomUUID } from 'node:crypto';
+import { SessionId } from '@deepseek-ai/dsh-session';
+import { RedTeamStore } from '../lib/index.js';
+import { compositionFixture } from './helpers/composition-fixture.mjs';
+
+test('Cordis mounts worker tools and native SessionStore events update the intent', { timeout: 40000 }, async t => {
+  const f = await compositionFixture(t, { preset: true }), parent = await f.createAgent();
+  const globalNames = new Set(f.app.get('tools').schemas().map(tool => tool.name));
+  const scopedNames = f.app.get('tools').schemas(parent).map(tool => tool.name).filter(name => !globalNames.has(name));
+  assert.ok(scopedNames.length > 0);
+  const task = await f.call(parent, 'redteam_create_task', { title: 'Native mount', goal: 'Event routing' });
+  const intent = await f.call(parent, 'redteam_plan_intent', { task_id: task.id, summary: 'fixture' });
+  const started = await f.call(parent, 'redteam_start_worker', { task_id: task.id });
+  assert.equal(started.id, intent.id);
+  const forbidden = await f.app.get('tools').execute({ callId: randomUUID(), name: 'redteam_worker_finish', arguments: { intent_id: intent.id, output: { fake: true } }, agent: parent, signal: AbortSignal.timeout(10000) });
+  assert.equal(forbidden.isError, true); assert.match(JSON.stringify(forbidden), /turn\/end event/);
+  const childId = SessionId(started.execution.childSessionId);
+  const store = new RedTeamStore(f.storagePath); await store.load();
+  const child = f.app.get('agents').get(childId);
+  if (child) await child.whenIdle();
+  const deadline = Date.now() + 3000;
+  while (store.snapshot().intents.find(row => row.id === intent.id).state !== 'done' && Date.now() < deadline) await new Promise(resolve => setTimeout(resolve, 10));
+  await f.app.get('subagents').drainChildren(parent, [childId]);
+  assert.equal(store.snapshot().intents.find(row => row.id === intent.id).state, 'done');
+  const events = f.observed.filter(row => row.type === 'session/event' && row.sessionId === childId);
+  assert.ok(events.some(row => row.event === 'turn/start'));
+  assert.ok(events.some(row => row.event === 'turn/end'));
+  assert.ok(await f.app.get('sessionPersistence').stat(childId));
+  await f.disposeAgent(parent); await f.unregisterPreset();
+  assert.equal(f.app.get('agents').get(childId), undefined, 'real child session owner must be drained');
+  for (const name of scopedNames) assert.equal(f.app.get('tools').get(name, parent), undefined, `${name} must be unregistered`);
+});

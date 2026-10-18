@@ -1,0 +1,21 @@
+/** Layout only; controls and colors use the installed DSH UI primitives and semantic tokens. */
+export const taskWorkspaceStyles = `
+.tw-root{container-type:inline-size;height:100%;min-height:0;display:flex;flex-direction:column;background:var(--dsw-alias-bg-base);color:var(--dsw-alias-label-primary);font:var(--dsw-font-xxs-12,12px/1.5 system-ui);color-scheme:inherit}
+.tw-root *{box-sizing:border-box}.tw-root h2,.tw-root h3,.tw-root p{margin:0}.tw-root h2{font-size:15px;font-weight:600}.tw-root h3{font-size:13px;font-weight:600}
+.tw-root a{color:var(--dsw-alias-state-business-primary);text-decoration:none}.tw-root a:hover{text-decoration:underline}.tw-root a:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary);outline-offset:2px}
+.tw-top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid var(--dsw-alias-border-l1)}
+.tw-toolbar,.tw-actions,.tw-inline{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.tw-toolbar{padding:8px 12px;border-bottom:1px solid var(--dsw-alias-border-l1)}
+.tw-scroll{flex:1;min-height:0;overflow:auto;padding:12px;scrollbar-gutter:stable}.tw-stack{display:flex;flex-direction:column;gap:12px}.tw-gap{display:flex;flex-direction:column;gap:6px}.tw-grow{flex:1;min-width:0}
+.tw-muted{color:var(--dsw-alias-label-secondary)}.tw-small{font-size:11px}.tw-title{overflow-wrap:anywhere}.tw-description{white-space:pre-wrap;overflow-wrap:anywhere}
+.tw-card{border:1px solid var(--dsw-alias-border-l1);border-radius:var(--dsw-radius-md,8px);padding:10px}.tw-card-selected{border-color:var(--dsw-alias-state-business-primary)}
+.tw-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.tw-task-button{flex:1;min-width:0;justify-content:flex-start!important;text-align:left!important;white-space:normal!important;height:auto!important;min-height:32px;overflow-wrap:anywhere}
+.tw-field{display:flex;flex-direction:column;gap:5px;min-width:0}.tw-field>span{font-weight:500}.tw-field input,.tw-field select,.tw-field textarea{width:100%}.tw-field small{color:var(--dsw-alias-label-secondary)}
+.tw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tw-full{grid-column:1/-1}.tw-root textarea,.tw-root select,.tw-root input:not([type=checkbox]):not([type=radio]):not([type=file]){font:inherit;color:var(--dsw-alias-label-primary);border:1px solid var(--dsw-alias-border-l3);border-radius:var(--dsw-radius-sm,6px);background:var(--dsw-alias-bg-layer-1);padding:7px 8px;min-width:0}.tw-root textarea{resize:vertical;min-height:78px;line-height:1.6}.tw-root select,.tw-root input:not([type=checkbox]):not([type=radio]):not([type=file]){min-height:30px;max-width:100%}.tw-root :is(textarea,select,input:not([type=checkbox]):not([type=radio]):not([type=file])):focus-visible{outline:2px solid var(--dsw-alias-state-business-primary);outline-offset:2px}
+.tw-kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 12px;margin:0}.tw-kv dt{color:var(--dsw-alias-label-secondary)}.tw-kv dd{margin:0;overflow-wrap:anywhere;text-align:right}
+.tw-notice{padding:9px 12px;border-bottom:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);white-space:pre-wrap;overflow-wrap:anywhere}.tw-notice[role=alert]{color:var(--dsw-alias-state-error-primary)}
+.tw-empty{padding:28px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--dsw-alias-label-secondary)}
+.tw-section{border-top:1px solid var(--dsw-alias-border-l1);padding-top:12px}.tw-record{padding:9px 0;border-bottom:1px solid var(--dsw-alias-border-l1)}.tw-record:last-child{border-bottom:0}.tw-row-content{flex:1;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.tw-order{font-variant-numeric:tabular-nums;min-width:20px;color:var(--dsw-alias-label-secondary)}.tw-root fieldset{border:0;padding:0;margin:0;min-width:0}.tw-root fieldset:disabled{opacity:.65}.tw-root details>summary{cursor:pointer;color:var(--dsw-alias-label-secondary);padding:4px 0}.tw-root details[open]>summary{margin-bottom:8px}
+@container (max-width:360px){.tw-grid{grid-template-columns:1fr}.tw-full{grid-column:auto}}
+@media (max-width:420px){.tw-grid{grid-template-columns:1fr}.tw-full{grid-column:auto}.tw-top,.tw-scroll{padding:10px}.tw-toolbar{padding:8px 10px}}
+`;

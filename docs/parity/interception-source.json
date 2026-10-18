@@ -1,0 +1,11 @@
+{
+  "project": "ARTEX",
+  "repository": "https://github.com/mhtsec/ARTEX",
+  "revision": "a9d11cb852eadad00669e4f6a05ee59cbbd14860",
+  "source": "intercept/prompt.go",
+  "destination": "src/interception/prompt.ts",
+  "adaptation": "Policy constants preserved verbatim; exported as TypeScript constants for DSH integration.",
+  "licenseFile": "LICENSE-ARTEX.txt",
+  "license": "GNU Affero General Public License version 3",
+  "scope": "ARTEX-derived policy text. REA and bundled third-party components retain their own license files."
+}

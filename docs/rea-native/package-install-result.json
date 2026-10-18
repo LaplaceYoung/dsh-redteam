@@ -1,0 +1,36 @@
+{
+  "directory": "C:\\Users\\xiaoz\\AppData\\Local\\Temp\\dsh-rea-package-nuYKUc",
+  "installed": "C:\\Users\\xiaoz\\AppData\\Local\\Temp\\dsh-rea-package-jJWb7S\\installed",
+  "reusedInstallation": "C:\\Users\\xiaoz\\AppData\\Local\\Temp\\dsh-rea-package-jJWb7S\\installed",
+  "archive": "C:\\Users\\xiaoz\\AppData\\Local\\Temp\\dsh-rea-package-nuYKUc\\dsh-redteam-0.1.0.tgz",
+  "sha256": "f643f7e78b366f224142c678f5a68170e2c60afe68b0e8a9b1b6aa1b4f85c734",
+  "packedBytes": 32555303,
+  "unpackedBytes": 127013987,
+  "fileCount": 8242,
+  "installFlags": [
+    "--ignore-scripts",
+    "--omit=dev"
+  ],
+  "verification": {
+    "runtime": "C:\\Users\\xiaoz\\AppData\\Local\\Temp\\dsh-rea-package-jJWb7S\\installed\\node_modules\\dsh-redteam\\node_modules\\@dsh-redteam\\rea-native-session\\runtime.mjs",
+    "runtimeSha256": "20e43e4fe27c2bdfaaed6a90ccc6d98c61d699b774d1876a1976370a715b43bb",
+    "entry": "C:\\Users\\xiaoz\\AppData\\Local\\Temp\\dsh-rea-package-jJWb7S\\installed\\node_modules\\dsh-redteam\\lib\\index.js",
+    "nativeDependencies": {
+      "yaml": "2.9.0",
+      "ws": "8.21.0"
+    },
+    "dependencyContract": "native package manifest",
+    "operations": 207,
+    "prompts": 6,
+    "cliCommands": 153,
+    "sqliteWorker": true,
+    "javascriptWorker": true,
+    "evidenceCount": 2,
+    "closed": true
+  },
+  "sourceComparison": {
+    "comparedFiles": 1944,
+    "matchesCurrentSource": true,
+    "differences": []
+  }
+}

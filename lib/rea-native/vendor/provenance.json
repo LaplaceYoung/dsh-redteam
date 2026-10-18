@@ -1,0 +1,746 @@
+{
+  "package": "rea-agents",
+  "version": "6.5.0",
+  "license": "MIT",
+  "entry": "import { GoBinaryService } from './dist/application/go/GoBinaryService.js';\nimport { GoBinaryProvider } from './dist/go/GoBinaryProvider.js';\nimport { RustBinaryService } from './dist/application/rust/RustBinaryService.js';\nimport { RustBinaryProvider } from './dist/rust/RustBinaryProvider.js';\nimport { PeResourcesService } from './dist/application/binaryDiagnostics/PeResourcesService.js';\nimport { PeResourcesProvider } from './dist/native/pe/PeResourcesProvider.js';\nimport { ElectronFuseService } from './dist/application/electron/ElectronFuseService.js';\nimport { ElectronFuseProvider } from './dist/electron/ElectronFuseProvider.js';\nimport { z } from 'zod';\nimport { inspectGoBinaryInputSchema } from './dist/domain/go/goBinary.js';\nimport { inspectRustBinaryInputSchema } from './dist/domain/rust/rustBinary.js';\nimport { inspectPeResourcesInputSchema } from './dist/domain/native/peResources.js';\nimport { inspectElectronFusesInputSchema } from './dist/domain/electron/electronFuses.js';\nexport const inputSchemas = {\n  inspect_go_binary: z.toJSONSchema(inspectGoBinaryInputSchema, { io: 'input' }),\n  inspect_rust_binary: z.toJSONSchema(inspectRustBinaryInputSchema, { io: 'input' }),\n  inspect_pe_resources: z.toJSONSchema(inspectPeResourcesInputSchema, { io: 'input' }),\n  inspect_electron_fuses: z.toJSONSchema(inspectElectronFusesInputSchema, { io: 'input' }),\n};\nexport const createServices = () => ({\n  inspect_go_binary: new GoBinaryService(new GoBinaryProvider()),\n  inspect_rust_binary: new RustBinaryService(new RustBinaryProvider()),\n  inspect_pe_resources: new PeResourcesService(new PeResourcesProvider()),\n  inspect_electron_fuses: new ElectronFuseService(new ElectronFuseProvider()),\n});\n",
+  "dependencies": [
+    {
+      "name": "zod",
+      "version": "4.4.3",
+      "license": "MIT"
+    },
+    {
+      "name": "canonicalize",
+      "version": "3.0.0",
+      "license": "Apache-2.0"
+    }
+  ],
+  "sources": [
+    {
+      "path": "dist/domain/analysisErrorBase.js",
+      "sha256": "6ef24463229b2b6e80ae4342f968cdc82700c02c763997a939bfc58d0039e5c3",
+      "bytes": 2873
+    },
+    {
+      "path": "dist/domain/analysisErrorCore.js",
+      "sha256": "d092a93a4eaa1487bf7acf8505485590455c0239ee5c91414213c6156aa21a9f",
+      "bytes": 5284
+    },
+    {
+      "path": "node_modules/zod/v4/core/core.js",
+      "sha256": "a5e713beaac4647151e03716a83f51ab714e5337cf66850f3b28eaf072a0bbfe",
+      "bytes": 2578
+    },
+    {
+      "path": "node_modules/zod/v4/core/util.js",
+      "sha256": "968e3433e810cf7ba5efb609a1cb6d9a6cfb51215fd1f699938228f7ac25deb3",
+      "bytes": 22018
+    },
+    {
+      "path": "node_modules/zod/v4/core/errors.js",
+      "sha256": "bdd0ed8fd4a6e9d04fe6423b0f9df3a0b403939bc7dcedd8930a4b8df1fb118c",
+      "bytes": 6413
+    },
+    {
+      "path": "node_modules/zod/v4/core/parse.js",
+      "sha256": "2578b8d1341c3882a6c089f9ec57ce1c1a16b8b2b477721d4d89ba3d3ee50c9c",
+      "bytes": 4444
+    },
+    {
+      "path": "node_modules/zod/v4/core/regexes.js",
+      "sha256": "3cb122080c1154321331322ebc0cbe04878fe104c8c7b335891d9f85fc4b3f63",
+      "bytes": 9078
+    },
+    {
+      "path": "node_modules/zod/v4/core/checks.js",
+      "sha256": "5a33a20dcad372b4d18ead8d1e58b1950454f136a2216e62f247e0e5601ac838",
+      "bytes": 20005
+    },
+    {
+      "path": "node_modules/zod/v4/core/doc.js",
+      "sha256": "e084bbcc536746a8942fd33b08afe4db345554b3a0383114f1dca95261c958d9",
+      "bytes": 1088
+    },
+    {
+      "path": "node_modules/zod/v4/core/versions.js",
+      "sha256": "bf082fde98fa7725412d713c7f56da3a5603bdef199d68d5769263f30ce9c756",
+      "bytes": 70
+    },
+    {
+      "path": "node_modules/zod/v4/core/schemas.js",
+      "sha256": "09da9b0cb9b9d2d795c349bc47c7521d5aaffe241885f0c9728f2aa7de3834c9",
+      "bytes": 83322
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ar.js",
+      "sha256": "220ca3ca8cf67e4ccc05d789eeed2692d970269fe0cd82f05db8fd899b661b9e",
+      "bytes": 5188
+    },
+    {
+      "path": "node_modules/zod/v4/locales/az.js",
+      "sha256": "4725ffef0b2f2df947194f9698c792b69f52a8c3a5a1e1bdfabbf62259a1dd46",
+      "bytes": 4511
+    },
+    {
+      "path": "node_modules/zod/v4/locales/be.js",
+      "sha256": "da4bda7fbc940dd9f50efdd914caa9397243be779a505b82bd4be5395d3b795e",
+      "bytes": 6619
+    },
+    {
+      "path": "node_modules/zod/v4/locales/bg.js",
+      "sha256": "48511ad2f86043f0eea6e7673d5e2b848a3295a26c9c4650e96b3884d640196d",
+      "bytes": 5785
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ca.js",
+      "sha256": "796f9ba7dcd53648171aa0132c50271ef358936765cec0a44a642c41d05b3e8c",
+      "bytes": 4710
+    },
+    {
+      "path": "node_modules/zod/v4/locales/cs.js",
+      "sha256": "670a75fe1db1104db090c95aabb01e4eb6decd451fe77fd830c2e4dafc79b49a",
+      "bytes": 4772
+    },
+    {
+      "path": "node_modules/zod/v4/locales/da.js",
+      "sha256": "cdaad7a1fa370abda1943fe9c2caba961e7896b9808d51275daf33f964af49cc",
+      "bytes": 4804
+    },
+    {
+      "path": "node_modules/zod/v4/locales/de.js",
+      "sha256": "521a4ed29fcaf3f781163875dc282cfb5262047773aa2b70a852996b1d8a51b9",
+      "bytes": 4588
+    },
+    {
+      "path": "node_modules/zod/v4/locales/el.js",
+      "sha256": "9857a9e4909282b2efd86317fc3e67ed86e24287f32329cfa5ab833c05fc0d81",
+      "bytes": 5544
+    },
+    {
+      "path": "node_modules/zod/v4/locales/en.js",
+      "sha256": "232a0828d64df8e410b23ac9825a667bd9d485fd70acdc4b4d0870539faef0a4",
+      "bytes": 4805
+    },
+    {
+      "path": "node_modules/zod/v4/locales/eo.js",
+      "sha256": "ebe08048aa3ee9871ce9fe1271e254cb672b1968ec40ac253066d08d176e8a65",
+      "bytes": 4603
+    },
+    {
+      "path": "node_modules/zod/v4/locales/es.js",
+      "sha256": "4edd9302e9724c408b024220e99092fbd2f90100ac3c6407a94543b79843610c",
+      "bytes": 5439
+    },
+    {
+      "path": "node_modules/zod/v4/locales/fa.js",
+      "sha256": "2dc1bee1e984e8a15191fb3c69aaecaa26c922e12a0d4486ac005a0372b78565",
+      "bytes": 5131
+    },
+    {
+      "path": "node_modules/zod/v4/locales/fi.js",
+      "sha256": "3911184979f01d2ae580ce611710ee40597eff97a410d0fa823ab6ea27cee88c",
+      "bytes": 4818
+    },
+    {
+      "path": "node_modules/zod/v4/locales/fr.js",
+      "sha256": "3ea466ca5737984bb5acc9008822060272f596317004618cfe1e05109f707577",
+      "bytes": 5137
+    },
+    {
+      "path": "node_modules/zod/v4/locales/fr-CA.js",
+      "sha256": "f8716c2baaccdfd1d958743bbc5250c9bdef5152d0801470e9b9a380d618f4ab",
+      "bytes": 4554
+    },
+    {
+      "path": "node_modules/zod/v4/locales/he.js",
+      "sha256": "290512e43d2907700211da09dc3959fd98d120bfb89f8836e6e3f83a472e26fe",
+      "bytes": 12005
+    },
+    {
+      "path": "node_modules/zod/v4/locales/hr.js",
+      "sha256": "1ea65433c32b89bead43113ac69b3acc520bb73ae231dd2e05fedf8e8c5656d6",
+      "bytes": 5052
+    },
+    {
+      "path": "node_modules/zod/v4/locales/hu.js",
+      "sha256": "913ee94a253db79b31463ae23a337060b6fe28be73dfc7657d8a83a4942bd8a8",
+      "bytes": 4696
+    },
+    {
+      "path": "node_modules/zod/v4/locales/hy.js",
+      "sha256": "0d3bbb96c0f8bc74468a2dfc7d066e838bb56fab64fd5ec03ce9c4d89eccbe99",
+      "bytes": 6390
+    },
+    {
+      "path": "node_modules/zod/v4/locales/id.js",
+      "sha256": "cd2c19b5c30dade3ed91ffcff3deb0b068713be24f02248e7e46b87b2b9553ee",
+      "bytes": 4577
+    },
+    {
+      "path": "node_modules/zod/v4/locales/is.js",
+      "sha256": "ead5b14eac892229f915fe38ec94ab3b1e676f8aa2df2a8450848ba9ca9a1612",
+      "bytes": 4635
+    },
+    {
+      "path": "node_modules/zod/v4/locales/it.js",
+      "sha256": "439969d199427d77ebf1e477bf2295b226712804b25437d442f9dfc78aca95e0",
+      "bytes": 4582
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ja.js",
+      "sha256": "43ee10378cac22b0b8aee912a66c3f36a834d5b4c76e9748f88a784044f248fd",
+      "bytes": 4851
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ka.js",
+      "sha256": "0ab5322368f9ac6e6b58f93dac484a4f4f06cdf4c0677f4df88164e9d8b4bf81",
+      "bytes": 6202
+    },
+    {
+      "path": "node_modules/zod/v4/locales/km.js",
+      "sha256": "dbdabda94dd93d4a1827e6c809505c79fa6aa7abefec91dc50fa0871382c99cc",
+      "bytes": 6242
+    },
+    {
+      "path": "node_modules/zod/v4/locales/kh.js",
+      "sha256": "78c3d1991041bb8c8fc0f7c5d745aae422d4c2e4e8f30bae44f3fef4765900a8",
+      "bytes": 111
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ko.js",
+      "sha256": "d2efe22ac069d9b32b0109fa07713ac0695ac1c1357afc4e4277056466f2e196",
+      "bytes": 4929
+    },
+    {
+      "path": "node_modules/zod/v4/locales/lt.js",
+      "sha256": "dad886e52c56a1329d22e072f8b08dc8730f69c3dc5e5acf8267cac18df1ab28",
+      "bytes": 8082
+    },
+    {
+      "path": "node_modules/zod/v4/locales/mk.js",
+      "sha256": "9eb4af0392fc5b9c438cdc6ceea446acc541b59e221dba918f7b80800d9da3d1",
+      "bytes": 5157
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ms.js",
+      "sha256": "c550a9185d997e8fcd17311951aa1e29793a50b8e825e18310efd5a46c641795",
+      "bytes": 4491
+    },
+    {
+      "path": "node_modules/zod/v4/locales/nl.js",
+      "sha256": "acba414579c5bbd7f83dc6661fa1a12d65f1822f9b0f5035549ac60f46d93763",
+      "bytes": 4762
+    },
+    {
+      "path": "node_modules/zod/v4/locales/no.js",
+      "sha256": "1854483c7cf158b8f97f0faf6fd799eb1f762009018b5fde893ca33f2fb0b313",
+      "bytes": 4506
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ota.js",
+      "sha256": "34ae496104bc17fea7d30c3d45c94cfe3d1d569b5d39a6ca51de6c177690c556",
+      "bytes": 4525
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ps.js",
+      "sha256": "f977b5141fa8fb6a8459372e0b2895d74b381c9f2ff4899141f7ee3e639a4513",
+      "bytes": 4909
+    },
+    {
+      "path": "node_modules/zod/v4/locales/pl.js",
+      "sha256": "18eab58f395e30b906e8e3fddc5f212eb19f2c4362410889a5c5e0141ebe2144",
+      "bytes": 4966
+    },
+    {
+      "path": "node_modules/zod/v4/locales/pt.js",
+      "sha256": "df172afc585544dee7c063c484f5a07b5ed103e2c1072a782c763ad8ceb08e17",
+      "bytes": 4568
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ro.js",
+      "sha256": "ecae409f4299ab91e2aff1095db14e23f3cf2c05b3654e242047655352c7f46b",
+      "bytes": 4774
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ru.js",
+      "sha256": "c397a473e94d7d189a9c09c7890fe379c4f6f46d9556d52a040a90ffa56f7b93",
+      "bytes": 6714
+    },
+    {
+      "path": "node_modules/zod/v4/locales/sl.js",
+      "sha256": "ee2ff3a19b62cd2f89b54b165088773b937de15df7253df220bef07d9adf2d80",
+      "bytes": 4567
+    },
+    {
+      "path": "node_modules/zod/v4/locales/sv.js",
+      "sha256": "97d6718fb643e05d6fe30fa4f9f09b8d9a3eda4a3a350b57dfb2944943d19502",
+      "bytes": 4663
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ta.js",
+      "sha256": "04bbde9766251f9047e786fdd77632f2ecd53aec2eb060eb2fc85bf576ad729d",
+      "bytes": 6369
+    },
+    {
+      "path": "node_modules/zod/v4/locales/th.js",
+      "sha256": "aea70c9ac2b399fe4749e19ba3aa99c3efb4dfb50eadfb62b0b2a6e005748f3d",
+      "bytes": 6290
+    },
+    {
+      "path": "node_modules/zod/v4/locales/tr.js",
+      "sha256": "4449f41d22c6f15ede5066f79d840a52ec45a6b694c859e16f9121062b6fad2f",
+      "bytes": 4454
+    },
+    {
+      "path": "node_modules/zod/v4/locales/uk.js",
+      "sha256": "77136a2a60eef62f7cc803a0f9971aebbc641403af77c1b41fd5ce59abfa5de3",
+      "bytes": 5430
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ua.js",
+      "sha256": "9391169ffbc72f777a83230b6ffcc3f4cf46ab5945ec540de9ef4609dca1f4cc",
+      "bytes": 111
+    },
+    {
+      "path": "node_modules/zod/v4/locales/ur.js",
+      "sha256": "858f4f38d651073e7a3fbec7ed356692578b3ad1fae1b453cb3d85312a4f39d2",
+      "bytes": 5271
+    },
+    {
+      "path": "node_modules/zod/v4/locales/uz.js",
+      "sha256": "d540bed482d15c47cb45439cff34e053379c53019c7c7c5fbe43f222d0c81f04",
+      "bytes": 4739
+    },
+    {
+      "path": "node_modules/zod/v4/locales/vi.js",
+      "sha256": "2c61bd3f4a733f3cbb1ad85e75a053cb15a8ebeb83ab56dc21f2948b1138e12f",
+      "bytes": 4772
+    },
+    {
+      "path": "node_modules/zod/v4/locales/zh-CN.js",
+      "sha256": "99a4b16af598834a0b11607fcdebd1c6de026386ff1d6a5a306b364c154c5899",
+      "bytes": 4452
+    },
+    {
+      "path": "node_modules/zod/v4/locales/zh-TW.js",
+      "sha256": "37dcae620e1553e9174a4b9434bbcc4e465150a627e80c9c17fd01de8baaf59a",
+      "bytes": 4498
+    },
+    {
+      "path": "node_modules/zod/v4/locales/yo.js",
+      "sha256": "98b9cbf31bf00c8b2c00de62725a9dd7cb718ac72d6e8fd4e0a1a7c49723e0f4",
+      "bytes": 4665
+    },
+    {
+      "path": "node_modules/zod/v4/locales/index.js",
+      "sha256": "d73f41a76614855d43eea493030a1aa05dca30c9a17015a0da5b8b70da61b6b1",
+      "bytes": 2149
+    },
+    {
+      "path": "node_modules/zod/v4/core/registries.js",
+      "sha256": "620ea1a715ccc4e6e605a271343bf47942dccae90885dc71f137b1f08a972e50",
+      "bytes": 1512
+    },
+    {
+      "path": "node_modules/zod/v4/core/api.js",
+      "sha256": "00cb5edcfde8098e5a169e66c1dce50c101484d21436e3d78e137e1fa87c4836",
+      "bytes": 28054
+    },
+    {
+      "path": "node_modules/zod/v4/core/to-json-schema.js",
+      "sha256": "fb3c9ab59947582f7671a53c8e20a3ced5eaa92d1c220ce8b27717a59033ad0d",
+      "bytes": 17006
+    },
+    {
+      "path": "node_modules/zod/v4/core/json-schema-processors.js",
+      "sha256": "ff15f567c9401dd7d3151ce11736283ff747c9a9e205cc08ee96f90eadc1c0c6",
+      "bytes": 20716
+    },
+    {
+      "path": "node_modules/zod/v4/core/json-schema-generator.js",
+      "sha256": "9cc884cdb535a9c87b85b66e61a593ff6b686222f038834f81c5e92552cd6e23",
+      "bytes": 3218
+    },
+    {
+      "path": "node_modules/zod/v4/core/json-schema.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "node_modules/zod/v4/core/index.js",
+      "sha256": "f9698820ee8371215e8d015cfa060230c62e65428397dce83f78e6538976301c",
+      "bytes": 594
+    },
+    {
+      "path": "node_modules/zod/v4/classic/checks.js",
+      "sha256": "78a162d29e06001b4d919e1ed08f6e7d0d665bba0ef983201373745410d7b354",
+      "bytes": 663
+    },
+    {
+      "path": "node_modules/zod/v4/classic/iso.js",
+      "sha256": "3cc5e6b4da086b8ffc7ee3188c69e4d3c945b368092e78d2299b5321182752c5",
+      "bytes": 1151
+    },
+    {
+      "path": "node_modules/zod/v4/classic/errors.js",
+      "sha256": "b155316267f79068ddc2dddc7046e13785804b768ca36e6deff1691d154f7c20",
+      "bytes": 1609
+    },
+    {
+      "path": "node_modules/zod/v4/classic/parse.js",
+      "sha256": "14cbcc416ab9169abc2cde97af77da54ca769684eac1e03a3753c16ea4a7cd95",
+      "bytes": 997
+    },
+    {
+      "path": "node_modules/zod/v4/classic/schemas.js",
+      "sha256": "eb4af7946a092aff8678b9251728ea58dab40154920cd65ec4a2ca1d4df68393",
+      "bytes": 51378
+    },
+    {
+      "path": "node_modules/zod/v4/classic/compat.js",
+      "sha256": "0e948b101771cc0e7b753e54b3f5b486929d3db9bd4c09d98fe4ce86271bcf7b",
+      "bytes": 1090
+    },
+    {
+      "path": "node_modules/zod/v4/classic/from-json-schema.js",
+      "sha256": "d8866bf5232e55d12cda032bde6a56a05a0a8b276945c2e4eed66432ef5cc9b2",
+      "bytes": 24161
+    },
+    {
+      "path": "node_modules/zod/v4/classic/coerce.js",
+      "sha256": "fb2efe3b6eacc475c77cbb571b5fb8650d92a10f316dc869e49b722973d83c3c",
+      "bytes": 550
+    },
+    {
+      "path": "node_modules/zod/v4/classic/external.js",
+      "sha256": "179a03ace3d1d77895cc5b3c54a3fcbf2b7f8bad44d6f030092491c10e5d9097",
+      "bytes": 907
+    },
+    {
+      "path": "node_modules/zod/index.js",
+      "sha256": "c733a1897d6b4b30dad6998597f6896b265b094a65534359ada34b08ecf8932c",
+      "bytes": 121
+    },
+    {
+      "path": "dist/domain/canonicalDigest.js",
+      "sha256": "f46d6bd4dd94835504d71b396cd9e1b995e5eff7da17a618d374c48765be81d9",
+      "bytes": 3160
+    },
+    {
+      "path": "dist/domain/canonicalJsonDigestSteps.js",
+      "sha256": "2d09327e55445a7c0d991b8e29c8a0bf8aa9a4955b5e4ec383b3d46ba6e0ddb6",
+      "bytes": 5754
+    },
+    {
+      "path": "dist/domain/localPath.js",
+      "sha256": "c14e7c62c21f1beaab25774a8248615e7814a1dd189828f53e5169040269f31a",
+      "bytes": 1199
+    },
+    {
+      "path": "node_modules/canonicalize/lib/canonicalize.js",
+      "sha256": "c0fd652bd174455567dcbbbab0f306fe5d40a9fb13b0f184b46aca083b29546e",
+      "bytes": 1334
+    },
+    {
+      "path": "dist/domain/immutableJson.js",
+      "sha256": "1c919c359ae1a0bd21eef017cbe8c8f31950e41f889eb63f5add6afda31d3029",
+      "bytes": 4836
+    },
+    {
+      "path": "dist/domain/jsonValue.js",
+      "sha256": "55db00e605fbd027dfb7b27803710e3d3673fee3d8f95e8a1356e0be34dedc6d",
+      "bytes": 5143
+    },
+    {
+      "path": "dist/domain/digests.js",
+      "sha256": "d3b4765597f6b2d7856d414bee84ffb172a7529095a5044d6119b03ba50748a5",
+      "bytes": 1311
+    },
+    {
+      "path": "dist/domain/analysisProfile.js",
+      "sha256": "2baafecaa804c6d02b166bcd882f028be44ff25f8fe90a45ed184d9499e073a6",
+      "bytes": 2182
+    },
+    {
+      "path": "dist/domain/binaryTargetTypes.js",
+      "sha256": "918849aaa36dd5cb3a9e666623d0449851930fb780c99e5e09c521fe8e33887b",
+      "bytes": 761
+    },
+    {
+      "path": "dist/domain/relationshipCoverage.js",
+      "sha256": "ccea848c90db5e4232409dbfc1e863f74ebeb5e10679467e57018156519ec7f8",
+      "bytes": 1567
+    },
+    {
+      "path": "dist/domain/evidence.js",
+      "sha256": "f992d93eaf228bf8d7c6bc3bf566f4ff4554b53299f35cd7ff29e3b18a78dcff",
+      "bytes": 13132
+    },
+    {
+      "path": "dist/domain/stringPatterns.js",
+      "sha256": "55210a60850c7870742144d6ebb6f7fce8cb46895b6433dcc21d15f32fb4ff1d",
+      "bytes": 502
+    },
+    {
+      "path": "dist/domain/go/goBinary.js",
+      "sha256": "4a4cfda327ec80499dbf1e1a644d388a5ae9191a918988c7055ee0a2c1291fb3",
+      "bytes": 4014
+    },
+    {
+      "path": "dist/domain/inputIssueProjection.js",
+      "sha256": "2681f18d94d6db775c3b23072d5ad07610e8de569b859c7918dc432f19fce123",
+      "bytes": 4192
+    },
+    {
+      "path": "dist/domain/result.js",
+      "sha256": "ff6811cc8bc0b60bdba0d98102fca60e39b59808f223f66db6f58304de3dde73",
+      "bytes": 178
+    },
+    {
+      "path": "dist/application/go/GoBinaryService.js",
+      "sha256": "ecaf6ff208d6be2eb0dba843614857742baa51e97d09052958e0206f9f2d354c",
+      "bytes": 3539
+    },
+    {
+      "path": "dist/artifacts/ArtifactReader.js",
+      "sha256": "ae1c6da589a90686c11fe7e495f4a0217bb80126f81fceeff2e0cbd60261e091",
+      "bytes": 3786
+    },
+    {
+      "path": "dist/filesystem/OwnedFileHandle.js",
+      "sha256": "71595743dd0a039000270876aa979c93cbb8c038a9f3f231ae456d1a608d51af",
+      "bytes": 1294
+    },
+    {
+      "path": "dist/artifacts/readStableArtifact.js",
+      "sha256": "06a23746346a3de150f1aa21b781fffd8a482c0f5e98900c458f3f599b9d2707",
+      "bytes": 4076
+    },
+    {
+      "path": "dist/artifacts/ArtifactResourceScope.js",
+      "sha256": "772c93c1259d808e5041e7801e457c5a629b83460cf518ae9eeea2d0c35a3139",
+      "bytes": 3793
+    },
+    {
+      "path": "dist/domain/providerAdapterError.js",
+      "sha256": "f67ff3a8c2104fc68bc9d0c638b5a4b2977606639b25e7af1e0a889f462b155c",
+      "bytes": 542
+    },
+    {
+      "path": "dist/domain/artifactOperationError.js",
+      "sha256": "f4a8d6d9a75cad9cd2a32aa30329b7471b88c153d0e9baa9279e41bc9c5c6e91",
+      "bytes": 978
+    },
+    {
+      "path": "dist/domain/configurationErrors.js",
+      "sha256": "eee1c50036fa94e8272a315ce0f2428edb31c2903c61fb380ce407e156a08786",
+      "bytes": 1477
+    },
+    {
+      "path": "dist/domain/browserObservationError.js",
+      "sha256": "e4d057082d2ae2af41dee2597050c8c5d3dd565aab755a086a081dea055711d1",
+      "bytes": 2337
+    },
+    {
+      "path": "dist/domain/evidenceErrors.js",
+      "sha256": "36bff6031df817ed3ff728a54155b47dc76d1bfa532ce9325fe217f9b1d055b8",
+      "bytes": 1716
+    },
+    {
+      "path": "dist/domain/hopperStartupFailure.js",
+      "sha256": "1812e1dda5ccaed51309034325e7b8293e4947fc7025c268561cc06bd729797e",
+      "bytes": 2865
+    },
+    {
+      "path": "dist/domain/hopperErrors.js",
+      "sha256": "95f156e315ffede4b993a615ab1a542e6ebdcdc55def3bd8e170e23c830264e3",
+      "bytes": 3526
+    },
+    {
+      "path": "dist/domain/providerSelectionError.js",
+      "sha256": "86fd825b965632f09a5a821765856bdfb1727919bbafb7601d5fb85fe22f4efc",
+      "bytes": 2323
+    },
+    {
+      "path": "dist/domain/unknownRegistryError.js",
+      "sha256": "f9096c77a59fc694b259944c5824d8340df276231653dfcf9971254f66c998cf",
+      "bytes": 396
+    },
+    {
+      "path": "dist/domain/providerOperationHealth.js",
+      "sha256": "704249ee25f853980cba4cd6bea6827cf3be532568f5d084a2225797a0e962ae",
+      "bytes": 1499
+    },
+    {
+      "path": "dist/domain/analysisErrorPresentation.js",
+      "sha256": "d7ee1306fa0e9125a64697854f25b16afa0fe5e96bf45ceab9397de5fa992f37",
+      "bytes": 23314
+    },
+    {
+      "path": "dist/domain/analysisErrorProjection.js",
+      "sha256": "9abea51a183f5b2f85e20881fdf4b90293e40f5a17bf351e04bf5e2fed49baf9",
+      "bytes": 19054
+    },
+    {
+      "path": "dist/domain/analysisErrorCleanup.js",
+      "sha256": "3c32f3441582971c6114233832c23762e746df49fe03eb485eee383d62ffedd0",
+      "bytes": 1328
+    },
+    {
+      "path": "dist/domain/providerCleanupError.js",
+      "sha256": "99c0248957f4ee4e5aaa878fd4fafd64c29f11d8938a868b407da60a237aa3b7",
+      "bytes": 898
+    },
+    {
+      "path": "dist/go/GoBinaryContainer.js",
+      "sha256": "2db56f9285c349dff9c9ac807a2e2bd1ddc468acd18f17f2e22456b3e52788b2",
+      "bytes": 5960
+    },
+    {
+      "path": "dist/domain/apple/machoContainer.js",
+      "sha256": "9fa430be5d2b7dbd4f0789280fbb831cb95b29723e54cacb0fc9664b9f6bae28",
+      "bytes": 7138
+    },
+    {
+      "path": "dist/domain/elfFixedHeader.js",
+      "sha256": "4b0bdaecc97af04fc89adcb6e20f9f6d2804081e8eb1ccfc4e6b711a12fb2f62",
+      "bytes": 1911
+    },
+    {
+      "path": "dist/go/GoElfImage.js",
+      "sha256": "ee88b9cd54763d7106068d4ba4055eac8f6c57218bc34aaed5dc9eecaa483204",
+      "bytes": 9979
+    },
+    {
+      "path": "dist/go/GoMachoImage.js",
+      "sha256": "eb00aa59631666bbb5dc4a0238e9350164a1b37543b61ab78b64890af17d57b0",
+      "bytes": 8494
+    },
+    {
+      "path": "dist/domain/dosMz.js",
+      "sha256": "267697c2ace2c50346d4ca2e646a1e2b6a18d0bc339661cf60dfb9d0aa177eb1",
+      "bytes": 5657
+    },
+    {
+      "path": "dist/go/GoPeImage.js",
+      "sha256": "bfd3a07489663325141c915224d26d63786cf3a5d177d69816837983b372c64a",
+      "bytes": 5768
+    },
+    {
+      "path": "dist/go/GoBinaryImage.js",
+      "sha256": "19bb62b961f43ec497a9c30510141fb3c1b06ad297521581d04f10c9aa2b1f45",
+      "bytes": 10703
+    },
+    {
+      "path": "dist/go/GoModuleText.js",
+      "sha256": "778da14e3199549a0dc109680403c8dde18913261d22ff4626fe0b8ee2059a5a",
+      "bytes": 7260
+    },
+    {
+      "path": "dist/go/GoBinaryProvider.js",
+      "sha256": "d3fabd08c9ecfe9fb79ca466e7b7763c5b471a9f571cb1c6f54b7bddaf8e1ee5",
+      "bytes": 8492
+    },
+    {
+      "path": "dist/domain/rust/rustBinary.js",
+      "sha256": "8793678da97b51946d84cd6e451cde43a6124e16739c4b48f492ac9c184ace94",
+      "bytes": 8657
+    },
+    {
+      "path": "dist/application/rust/RustBinaryService.js",
+      "sha256": "dff40613f42ae0dfe87af7b0746eadf362716a321d00c61a10d16467b02ec0f7",
+      "bytes": 3477
+    },
+    {
+      "path": "dist/rust/RustAuditableReader.js",
+      "sha256": "1f3748c9ed6d04721a9bef364195e5d9b3d86794088c8594a366a9fb97fd6505",
+      "bytes": 11659
+    },
+    {
+      "path": "dist/rust/RustBinaryImage.js",
+      "sha256": "08adaa596386428c84c2a8faa5d9e7b80199c14e5650ebd9fca41acd236ea681",
+      "bytes": 4953
+    },
+    {
+      "path": "dist/rust/RustBinaryProvider.js",
+      "sha256": "e8c2152b2a240f261a7b702ddffedcd07bc8433b2bba1be7778f1ac44383c427",
+      "bytes": 8210
+    },
+    {
+      "path": "dist/domain/native/peResources.js",
+      "sha256": "1f988b742c32095f8ae884aa623d5f4f28daca220637744451726db53cf7eb8d",
+      "bytes": 3409
+    },
+    {
+      "path": "dist/application/binaryDiagnostics/PeResourcesService.js",
+      "sha256": "9fed6622e2bec6c459c8596b8687c4cbe5581268ec5e78d0454e3941c7c5e390",
+      "bytes": 5603
+    },
+    {
+      "path": "dist/application/InvestigationProviders.js",
+      "sha256": "f3f41caeea3e0bda6b95a193730ae5b5b586a26aa3eafcadcb2fb20ff6048777",
+      "bytes": 5004
+    },
+    {
+      "path": "dist/domain/jsonSerialization.js",
+      "sha256": "d8f41ce07df231988d0e886e724bf18c9b10a4a82da65977548c39e822ced27b",
+      "bytes": 5949
+    },
+    {
+      "path": "dist/native/pe/PeResourceLayout.js",
+      "sha256": "d9c6dbfa8df5a818b22b5a67bc03f5912731a59983f70c6f4aaeeb96a988bb59",
+      "bytes": 5679
+    },
+    {
+      "path": "dist/native/pe/PeResourceParser.js",
+      "sha256": "721aa25bd714d7cc19300bee040b45c8bb88807b82faa9ef6a6881058c437d93",
+      "bytes": 12713
+    },
+    {
+      "path": "dist/native/pe/PeResourcesProvider.js",
+      "sha256": "b922f0a906e36ccb0e5768e8b0e8f58328701a812c566180b7a1c494ac00ff6a",
+      "bytes": 4141
+    },
+    {
+      "path": "dist/domain/electron/electronFuses.js",
+      "sha256": "69d0c5608d8b5d895873f2a55456c67eded0eb91b6809c1c6083f7a2c85351d6",
+      "bytes": 15330
+    },
+    {
+      "path": "dist/application/electron/ElectronFuseService.js",
+      "sha256": "d279d5567eb880df1fde449b3cb651e40134eea59920a06e72aab557600da078",
+      "bytes": 3567
+    },
+    {
+      "path": "dist/filesystem/RegularFile.js",
+      "sha256": "0ac087fa40de7ef580a7c79e782520078f4f5e7a4104339fb11379304f4d6a7e",
+      "bytes": 5115
+    },
+    {
+      "path": "dist/electron/ElectronFusePath.js",
+      "sha256": "0eeed71544b402ceca0a810911c5b5538d409b2fa8a025c5793dcb332bf1330e",
+      "bytes": 10432
+    },
+    {
+      "path": "dist/domain/apple/machoCpuIdentity.js",
+      "sha256": "c165e7cbba68d80d0e637ae679239a90fd11ff63492f041b8207e81242f93cfb",
+      "bytes": 304
+    },
+    {
+      "path": "dist/artifacts/apple/MachoLoadCommandReader.js",
+      "sha256": "a03af5ab49c658186bf0178c77faf7a9ef03a85d323b57156029cf2b55e8631a",
+      "bytes": 16870
+    },
+    {
+      "path": "dist/electron/ElectronFuseReader.js",
+      "sha256": "be0694962d85ed1565547dd0805f6b162a393c46f9dcaf23dc9633abce7f56f7",
+      "bytes": 13381
+    },
+    {
+      "path": "dist/electron/ElectronFuseProvider.js",
+      "sha256": "8e2b38afbe587e418e96de0ddd37b800e78ce75a0496171413019e1f463da662",
+      "bytes": 5541
+    }
+  ],
+  "outputSha256": "254145a9a6c8b06263a563b1c36bd2c00c4d59b3d76ff4e027aba00bfb7e00af"
+}

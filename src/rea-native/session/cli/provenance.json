@@ -1,0 +1,379 @@
+{
+  "version": "6.5.0",
+  "license": "MIT",
+  "importRewriting": "Local CLI boundaries; domain imports reuse bundled upstream source",
+  "files": [
+    {
+      "source": "upstream/dist/cli.js",
+      "sha256": "73ec2c86e22e6fcb6b008ad94624c386dcf8e4e2107c10c2bcf5eb681c75e97e",
+      "adaptedSha256": "51912a23c372a14b20e440d82258e451a8f98621a92b3bb32e75a316e813050c",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliBrowserContext.js",
+      "sha256": "666f19a42713b5a286bcb4e17978f16e94fa3681a50b7f2f9fb1167df18db53e",
+      "adaptedSha256": "0555368406e4d02a31d7a239b14e541147a9a53663279ce0d505d657b67af5cf",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliBrowserScenarioCommands.js",
+      "sha256": "0c6b5610511af714a41581b727321476a8fb0d1e76231de626a9bd14fef7a5e0",
+      "adaptedSha256": "267cc22ae5153a3d804400133b5a494b6e947041f9a1986d4b07ad5834a29555",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliCommandNames.js",
+      "sha256": "41963156f6330ecf7b8d8b62e00da6a563ad5312fca82afac38f51c996255dd3",
+      "adaptedSha256": "41963156f6330ecf7b8d8b62e00da6a563ad5312fca82afac38f51c996255dd3",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliEvidenceCommands.js",
+      "sha256": "ad41ed20a5d5d95e7402bbf13f46f32bd1a42d8b10a742e21b9bd38b062d85ea",
+      "adaptedSha256": "15be0bf2fd612a3ba8df5ebab119b7f50f272ec0a176632a43dfdcddd3f08d7b",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliJavaScriptRuntimeCommands.js",
+      "sha256": "2c19d82bd380ec7c08224900dd8340ebc9cc4875ee12121ae345c8cc55bf0617",
+      "adaptedSha256": "08ef84d6d47bcd5a37be866ff7dbbb0d465fce4d6a64dfc149e3b0244088dbad",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliJsonInput.js",
+      "sha256": "60ad131902e991a4c6a71a6ae29674897a1a40a16fac0d897111dd42ccc76518",
+      "adaptedSha256": "024fb00900968b0731f19cb26f19f28de24c02dabb91e71f2bd43b0447809f22",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliLogging.js",
+      "sha256": "a91304660169a573a6dcf6e12f5cdb039f6700d3c4621016949e9e4c743a0ee9",
+      "adaptedSha256": "93fd60c44a045bc8776de87d5cef2c608b9684ff736da01222bfe343806cc6eb",
+      "adaptations": [
+        "process exit code becomes invocation failure"
+      ]
+    },
+    {
+      "source": "upstream/dist/cliObservationOptions.js",
+      "sha256": "ff6c723651afb63a0b65088e7ae03c890e22bddebf14d44433a070e890b3d858",
+      "adaptedSha256": "52653bbca2aca5568fd47c530f72215866158ed20a55ac3cb14ed3806cfa5b80",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cliOutput.js",
+      "sha256": "433be7ca946afc34b4b015f3ef7a4287b06ef82ee49c55b8f1d8f882402a7533",
+      "adaptedSha256": "433be7ca946afc34b4b015f3ef7a4287b06ef82ee49c55b8f1d8f882402a7533",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/adbCommands.js",
+      "sha256": "db7f55ccc852da624b476539020a27407c593cff088f1aa851d911c4009c7ec9",
+      "adaptedSha256": "6f1c79bd6087a19b47f32df6ca79f7ae1cb859f43f061fbe74f518b40e4022bf",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/analysisSelector.js",
+      "sha256": "489543671cbaa00fb121ceaecaf55626e9bce5892b76f7426ccf19a7c953cbd8",
+      "adaptedSha256": "6f28ba665b78d3224ce3d8870dab4e0f49edad199e09e785dd063dc108510460",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/analysisViewCommands.js",
+      "sha256": "016c9e73defeed8656a023ef77bf7a6a6960c88fd3ebe24073ba806ccaebca4b",
+      "adaptedSha256": "98291402740424593345c1cf43ea616cce8ea208ab823b73816ff2545da5166a",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/androidCommands.js",
+      "sha256": "30c1eb2ec0b42171f1f8880e2b8d55285f4ae694c85789feedef8403af413e03",
+      "adaptedSha256": "d79e2a1f44999b546e508fb1db59d2da98df745c46ebd0d97f51351e4be83bcb",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/apktoolCommands.js",
+      "sha256": "1f00214afe857399d98e71066ef3857113ebce751ff2a234af9417f7b916b562",
+      "adaptedSha256": "93d8795da1ee12a9c9a4ff5835084c75b5fd6e9b3b2840d790e57938c23cbcbb",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/applicationCommands.js",
+      "sha256": "0b938b4005db31b99146a91fe68032f9dc0265152067282aa0fe0a9ef6a567f1",
+      "adaptedSha256": "ce072fabbb25365418e26ccc0eacf3a5e7cc3d9f8e94d5c07062884780688701",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/artifactCommands.js",
+      "sha256": "c4d56e038151ce3fa700692fb0701f3651c05add34e6e7cb1d2eef8b9b4f6aaa",
+      "adaptedSha256": "c44ac54430860b9060b3b424932a48856ce2e5b67769aa2229998b65474f3988",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/binaryDiagnosticsCommands.js",
+      "sha256": "b55140181432373edd89be99d5f6b078c9fd1f4f0db771ed5b8263b9954021a0",
+      "adaptedSha256": "131c9eb379ba49536e29ba3bcf3b29b62e3d7194740704e3f02bde3886e8327f",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/browserAdvancedCommands.js",
+      "sha256": "ba00e13f4665886ba5e3f045ca928725e97b211778f26b372240bce92458354f",
+      "adaptedSha256": "ed48f2a01b09acc6b6874659737d77f0012f313acfc5b6087117b2a826f32189",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/browserCommands.js",
+      "sha256": "64d906b43f0893c76d6aa8b4cd4c93bb50be6677614042dddff71f0f85caf60f",
+      "adaptedSha256": "fed21ea5189edb131e4eba72fd130c285d46355802819bc366e9bcc90b282749",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/captureCommands.js",
+      "sha256": "d273276d32ee6aa281ee495290105db76db18a33cdec4c08891081423e4d1b99",
+      "adaptedSha256": "d0f49b710b8ff361605041998e7ae29ca3b4f5ffe753401b9b4d24327a39851c",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/cliResultOutput.js",
+      "sha256": "35d6ec65e836c9758a48fffbf9417ebe6ab3616678d7c2f2777d1db59fd201d2",
+      "adaptedSha256": "09204a6e8674292886d5ec62f6b172264c91df89bf3e2ec455e5410353c2db02",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/commandCancellation.js",
+      "sha256": "92b835e5de73ed858afe4710dda6671f19f8f06fbbff43016902392f1cde245d",
+      "adaptedSha256": "08be09819de33e5082d62da45f09a9b352ac78d16a47bf3336824d670838f6c0",
+      "adaptations": [
+        "host abort signal replaces process signal listeners"
+      ]
+    },
+    {
+      "source": "upstream/dist/cli/coreAnalysisCommands.js",
+      "sha256": "a68df75539c743d6a4c4562e20e33cfb3bcfcb66098eee251924fbaed6fb18b2",
+      "adaptedSha256": "a68df75539c743d6a4c4562e20e33cfb3bcfcb66098eee251924fbaed6fb18b2",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/coreBinaryCommands.js",
+      "sha256": "e5faf2533eb7e5f12bc40197727561292e2b831a5ca06d908fc06098da8236ed",
+      "adaptedSha256": "3fcaff161969e9418e8e4d9286b4502cf969275917cc0bd381702e716350cac7",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/coreNativeCommands.js",
+      "sha256": "1ca9f8e3a53b1eabe0065eafb76ca33d528b77d739b216d2b21e3f83ec9a0170",
+      "adaptedSha256": "1ca9f8e3a53b1eabe0065eafb76ca33d528b77d739b216d2b21e3f83ec9a0170",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/cutterCommands.js",
+      "sha256": "baa2d757cf224c9aa043495f8f4056681c47192de9776f821f56d96775b2928a",
+      "adaptedSha256": "c1ccf0bfa326b5d4f76c267c9dbe52c3bcb9fc0d43da97365f640e7830e17c49",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/electronCommands.js",
+      "sha256": "a889d0d2327488d5f193692b89080888a18125107ad6e8ceaa0e1a796088a7ae",
+      "adaptedSha256": "d86eeb7e368849459bc3081732419b636fde114225cf32c92423febb60036275",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/evmCommands.js",
+      "sha256": "61e44676ca4155423005de4f2e81e97c93a7e9eec1bc94886201ac0fc1ff1e41",
+      "adaptedSha256": "a2e9d4ed4986a3d87e86fcedc3a60710778907099e26493297bd8b1342d76778",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/finishAnalysisCommand.js",
+      "sha256": "f4d06c837cc5c12ab8627046aeb6d8aeb362a0d1512f869f6726b2d4d6ee65ad",
+      "adaptedSha256": "3a52c215ac60abc80b46ce9b72eba3a19bbab3faa5ff33012e3d771677c82286",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/firmwareCommands.js",
+      "sha256": "a7dbe95ead33eb58c5b73fd6cb0516da0801f89a808dddd0f069fd6f16dba562",
+      "adaptedSha256": "7efa608522f637bc3aa314286d595aad6d5bde017e3401637210a010031a246e",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/flutterCommands.js",
+      "sha256": "8354ba86bc42c73a785c3ed9b99f0f8a702d1b0be5fe6d798b76d6ee35da0d18",
+      "adaptedSha256": "10e5c5321f075e231455c7f94c2cf33d3e70cc61acd5fc9724c3300e0c75bbd7",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/fridaCommands.js",
+      "sha256": "8f577fcefc02ff287f3caf268e273d19f445ff968d0484eedf2b82cc6c7abda8",
+      "adaptedSha256": "cb21dc915526dd1e4738dca683b55af5b5b483313085d9d8ebfb2b6d0230a5e5",
+      "adaptations": [
+        "process exit code becomes invocation failure"
+      ]
+    },
+    {
+      "source": "upstream/dist/cli/goCommands.js",
+      "sha256": "84fdee474d397638fede2dd960d7ee89052d8f9dd2dd6c8ef9b4ae97bddcc6f2",
+      "adaptedSha256": "d9761db4fe4cad053981d969950eb3fe096d496464241288f34a134271c01113",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/interactiveSetup.js",
+      "sha256": "081a57fda82459ac1f212bb2cee77e45bf2a697be153efc4a8472bd74ca53da8",
+      "adaptedSha256": "accc315460047d2112866aa0fdb3692cd34e5ab0a8d809678f48c0e2e51b1d2d",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/javascriptApplicationAnalysis.js",
+      "sha256": "231d017833cb1f5e684d992ebddbf7aac68b52af0b63badf56103e27de7a88e8",
+      "adaptedSha256": "dd7994a85c1137d5dfd3d6f7ae6228cfa1dc22b94c6e6e25ba18bd53c409552a",
+      "adaptations": [
+        "progress callback replaces stderr"
+      ]
+    },
+    {
+      "source": "upstream/dist/cli/javascriptRecoveryCommands.js",
+      "sha256": "9aa144460e59e3fe8f5cd39aa7ef0ac229c88eb861ae9524b703a675a19bcede",
+      "adaptedSha256": "117f26243fbed39ed7afddf2a399b7bbec3ca2cb683d334659ac7e44d39165d3",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/jebCommands.js",
+      "sha256": "7d852f5455dc9b4a21b9506d0ecf09667910bccdd8627dc2892b673a16942457",
+      "adaptedSha256": "c2b0c53dc46cd6f3a415a6d658d878bab21bbca482afbe137cf0af2aa91309fc",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/jsonOutput.js",
+      "sha256": "87874f1fb978611fdafa744e09390b3dcf7d015136fb0068c19e4b84941b25b4",
+      "adaptedSha256": "96bce93453e624fabb3b547d47884470815c127b0de9357cd53edcb637866471",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/managedCommands.js",
+      "sha256": "6dd64bc1d21249251c01f5943c08c6413ac68218027544a573a040899cf94557",
+      "adaptedSha256": "f085c4fdd66bbf413b615e4aa99f2c896da50b6168a44828daa6133107c264b5",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/managedProjectGraphCommand.js",
+      "sha256": "aac8e0f303f25e7ffc5300d77925478143d418c84c821699885aafe30aec9b52",
+      "adaptedSha256": "53ee145c719e28fae211a2fba8d4fa028cfdb059d3d7571f719b86624dfe28ba",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/nativeCallCommands.js",
+      "sha256": "0807231d5b00ca9741e444b87e52ba9eb2455938c56e509c3995dc0d6b49978d",
+      "adaptedSha256": "389c82a91c686b78d9362dc7f58bdecca33d60ca9b6ddc97178d1a2b0b6ec6a2",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/omittableDefaults.js",
+      "sha256": "5f50f475e696d41335916fcccca132284707fd7dc03659f650e38a722db04756",
+      "adaptedSha256": "5f50f475e696d41335916fcccca132284707fd7dc03659f650e38a722db04756",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/options.js",
+      "sha256": "26252b6c094b6fc7e90f27afdc548b953ace4ccff9b22f8ead6ea4a57a855bc6",
+      "adaptedSha256": "03bb49df501178249491bf3d6886ce1b2b3b5a4e223436fb894738a9614393c0",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/pcapCommands.js",
+      "sha256": "546cc35459b5aac6357e1ac2b5d42c68c5a09f243009dc845dfc5fc50bc44e65",
+      "adaptedSha256": "eaa85b4a21d28999b251e868cd021c4e54e4e9a95bf36c2600159d8e6f586ea0",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/processCommands.js",
+      "sha256": "de4f6928db20c7eb8e0b8c6d208c4b0d1aabc472048eb8c7f1056d7fba7d7681",
+      "adaptedSha256": "938c1d07bc382c375e2779a40a2311d286f55cac4a94eab6a439ec21155dba5f",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/referenceSourceImportStatus.js",
+      "sha256": "8e980bbf99d9bbb5e9e3978511bac733bc1a1e9db838eac1a125d3b6c92b840e",
+      "adaptedSha256": "8e980bbf99d9bbb5e9e3978511bac733bc1a1e9db838eac1a125d3b6c92b840e",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/reverseEngineeringCommands.js",
+      "sha256": "5bfe9d1ae4d10b0ff9239212175a026c31f21035847c961a79f1978f96e3023e",
+      "adaptedSha256": "babbf39a3c53c53ad9be19e2aac45460831b440e4e1cab50b452d98cb9e41a56",
+      "adaptations": [
+        "process exit code becomes invocation failure"
+      ]
+    },
+    {
+      "source": "upstream/dist/cli/rustCommands.js",
+      "sha256": "feca585495e89647b64b08f361b24e9cc1f786da7077e20b9794708de148b766",
+      "adaptedSha256": "4e751cbf19d87adeaf6ff7efda53694b216cc68c0cf5ed8fda9031d5bdd9d5e0",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/setupCommands.js",
+      "sha256": "1022d6814662ad926cc4ae8d8dee5530c0a03e7d396d0128f3e6e5472f3dd3bf",
+      "adaptedSha256": "52d4ca4b0da345561517fa9f5d8f3bbf45621ef3e1f1eb485f336bc984056377",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/signalCommands.js",
+      "sha256": "f033461c4c136296b4abeb3315e8572438a5654bc7615283626abf0b671b3eef",
+      "adaptedSha256": "fd905b972907ae99faca4cfb220d2426b9d258090cc8f74959215a9c4fd93c17",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/sqliteCommands.js",
+      "sha256": "c2ed389836a0c2d493248bf73fe5dc80a300cdc97f6d5891d90b21543c550d73",
+      "adaptedSha256": "278e108143e4d41c3331b9a2b76cbdf39cf1dfa765ccc68b74acf5e718acf5b1",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/types.js",
+      "sha256": "235cf8904ed85afe8595009c85c9a50d1bd6705596bab4529eca926e2621205a",
+      "adaptedSha256": "235cf8904ed85afe8595009c85c9a50d1bd6705596bab4529eca926e2621205a",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/utilityCommands.js",
+      "sha256": "e1ca24d7c09b2dfe4d0c1608493c02bd11571d9bbd4f8b2d647f7e48d8223762",
+      "adaptedSha256": "16f424a5dbaee191bc779c45f35c32f18924064ee9d7496cb4633a430679ac63",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/wasmCommands.js",
+      "sha256": "8035360ec7b59fb57470d5be8853f7c731e2af1fefbfe95a56f65af4edfb0cf6",
+      "adaptedSha256": "eb32a867b7ac3945b329ec4873c5da771ce9cf060499ba3f3b5b9bcebe2b80f1",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/webModuleCommands.js",
+      "sha256": "8a258b9d9db63ab6ba1dd19e3086a97f8094574436b6c84c03676d1ea39e8949",
+      "adaptedSha256": "500f55933ca5cd7ece9213228d3cf9324e0ce4781bf9b32c7b208c5f88f6c083",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/webNetworkCaptureCommands.js",
+      "sha256": "349bb06600a214c49a8f2f68f79831bf40696b31c9fcb809205aea3d5313ca51",
+      "adaptedSha256": "7eb2e24ca7171569b1d4cdd4a7854eaa5faf983f7c108c455ee4b8befbab1c80",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/webRuntimeCommands.js",
+      "sha256": "b8955285f55d92dd4c66cd513ef1707b21d31d8332bb87363ba25892cc7a10c0",
+      "adaptedSha256": "04df95956a365128d4c1ece870ce6683e14db68137f78877946f37f7b57ca122",
+      "adaptations": [
+        "progress callback replaces stderr"
+      ]
+    },
+    {
+      "source": "upstream/dist/cli/webScriptCommands.js",
+      "sha256": "ea88e42fa2fd52d1e5cbd0a1fc48f65aeb32e64ef87d201ad2093195e266a993",
+      "adaptedSha256": "416063a35254a70afa15d5249b99f31dc7a37142116872c3459cf7337fbe84b4",
+      "adaptations": []
+    },
+    {
+      "source": "upstream/dist/cli/webSourceLocationCommands.js",
+      "sha256": "9e4628d8f2a02e6d76d36951d1395efa7a7a052e6ca3484ec23cf7786402e326",
+      "adaptedSha256": "3e7a1244243ac9fcb1e0aca481b257cc4096c13040d599cfaee86d9dd6324a36",
+      "adaptations": []
+    }
+  ]
+}

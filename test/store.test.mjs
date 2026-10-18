@@ -1,0 +1,47 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, readFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { RedTeamStore } from '../lib/store.js';
+import { ArtexWorkflow } from '../lib/artex.js';
+
+test('ARTEX workflow persists task, intent, graph and worker trace', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'dsh-redteam-'));
+  const store = new RedTeamStore(join(dir, 'redteam.json'));
+  const workflow = new ArtexWorkflow(store);
+  const task = await workflow.createTask('Fixture', 'Map the fixture');
+  const intent = await workflow.plan(task.id, 'Inspect the target', { target: 'fixture.bin' });
+  const claimed = await workflow.claim(task.id, 'worker-1');
+  assert.equal(claimed?.id, intent.id);
+  await workflow.finish(intent.id, { evidence: 'e-1' });
+  await store.addGoal({ taskId: task.id, text: 'Check exposed service', state: 'open' });
+  await store.addConstraint({ taskId: task.id, kind: 'deny', text: 'Do not mutate production data', origin: 'human' });
+  await store.addScope({ taskId: task.id, kind: 'root_domain', value: 'example.test', source: 'human' });
+  await store.addTraffic({ taskId: task.id, host: 'example.test', method: 'GET', url: 'https://example.test/' });
+  await store.addInterceptRule({ taskId: task.id, name: 'approval', enabled: true, priority: 10, matchTarget: 'tool', matchType: 'glob', pattern: 'shell*', action: 'ask', message: 'review' });
+  await store.setReport(task.id, '# Fixture report');
+  await store.addArchive({ taskId: task.id, state: 'queued', progress: 0 });
+  await store.addNotificationChannel({ name: 'local', kind: 'webhook', mode: 'realtime', enabled: false, config: { url: 'https://example.test/notify' } });
+  await store.addCompany({ name: 'Fixture Corp', description: 'fixture' });
+  await store.importSnapshot({ tasks: [{ id: 'legacy-task', title: 'Imported', goal: 'Imported goal', status: 'done', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }] });
+
+  const snapshot = workflow.snapshot(task.id);
+  assert.equal(snapshot.tasks.length, 1);
+  assert.equal(snapshot.intents[0].state, 'done');
+  assert.equal(snapshot.nodes.some((node) => node.kind === 'intent'), true);
+  assert.equal(snapshot.traces.some((trace) => trace.worker === 'planner'), true);
+  assert.equal(snapshot.goals.length, 1);
+  assert.equal(snapshot.constraints.length, 1);
+  assert.equal(snapshot.scopes.length, 1);
+  assert.equal(snapshot.traffic.length, 1);
+  assert.equal(snapshot.interceptRules.length, 1);
+  assert.equal(snapshot.reports.length, 1);
+  assert.equal(snapshot.archives.length, 1);
+  assert.equal(snapshot.notificationChannels.length, 1);
+  assert.equal(store.snapshot().companies.length, 1);
+  assert.equal(store.snapshot().tasks.some((item) => item.id === 'legacy-task'), true);
+  const persisted = JSON.parse(await readFile(join(dir, 'redteam.json'), 'utf8'));
+  assert.equal(persisted.tasks[0].id, task.id);
+  assert.ok(persisted.version >= 5);
+});

@@ -1,0 +1,66 @@
+{
+  "artifacts": [
+    {
+      "digest": {
+        "sha256": "abababababababababababababababababababababababababababababababab"
+      },
+      "format": "elf",
+      "architecture": "x86_64"
+    }
+  ],
+  "providers": [
+    {
+      "id": "fixture",
+      "name": "Offline test producer",
+      "version": "1"
+    }
+  ],
+  "environments": [],
+  "scenarios": [],
+  "captures": [],
+  "unknowns": [],
+  "records": [
+    {
+      "evidence_id": "ev_a344e0737f3bfeb597a8907ca3ba6f6cfe2cedc6a820cf0c6b8398702d12efd5",
+      "subject": {
+        "name": "program.bin",
+        "digest": {
+          "sha256": "abababababababababababababababababababababababababababababababab"
+        },
+        "local_path": "/fixtures/program.bin",
+        "format": "elf",
+        "architecture": "x86_64"
+      },
+      "provider": {
+        "id": "fixture",
+        "name": "Offline test producer",
+        "version": "1"
+      },
+      "analysis_profile": null,
+      "predicate_type": "rea.analysis",
+      "operation": "analyze_function",
+      "parameters": {},
+      "raw_result": null,
+      "normalized_result": {
+        "procedure": {
+          "address": "0x1000",
+          "name": "main"
+        },
+        "native_value_flow": {
+          "available": true,
+          "truncated": true,
+          "known_omitted_inputs": 3
+        }
+      },
+      "confidence": "observed",
+      "authority": "shipped-artifact",
+      "environment": null,
+      "limitations": [
+        "Fixture observation only."
+      ],
+      "relationship_coverage": null,
+      "locations": [],
+      "evidence_links": []
+    }
+  ]
+}

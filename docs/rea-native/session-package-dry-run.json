@@ -1,0 +1,22 @@
+{
+  "command": "npm pack --dry-run --json --ignore-scripts",
+  "id": "@dsh-redteam/rea-native-session@6.5.0-dsh.1",
+  "entryCount": 1653,
+  "size": 5701499,
+  "unpackedSize": 25794442,
+  "required": [
+    "runtime.mjs",
+    "runtime.d.mts",
+    "native-registrar.mjs",
+    "upstream/package.json",
+    "upstream/dist/composition/javascriptAnalysisWorkerProcess.js",
+    "upstream/dist/sqlite/SqliteDatabaseWorker.js",
+    "upstream/native/windows/build/rea-windows-x64.node",
+    "upstream/bridge/hopper_bridge.py",
+    "upstream/LICENSE",
+    "upstream/THIRD_PARTY_NOTICES.md"
+  ],
+  "missing": [],
+  "nodeModulesFiles": 0,
+  "limitation": "Package inventory only; external npm dependencies are resolved at installation, not bundled."
+}
